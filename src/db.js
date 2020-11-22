@@ -1,7 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
-const app= firebase.initializeApp({
+export const db= firebase.initializeApp({
     apiKey: "AIzaSyB2WiECV3z574s3cmEIGh6adol8mSyz1wI",
     authDomain: "movies-ea0a0.firebaseapp.com",
     databaseURL: "https://movies-ea0a0.firebaseio.com",
@@ -11,5 +11,5 @@ const app= firebase.initializeApp({
     appId: "1:971467144985:web:9de789f04f52d6960b4f88"
   }).firestore();
 
-export const moviesDb= app.collection('movies');
+export const moviesDb= db.collection('movies');
 

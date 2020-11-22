@@ -1,35 +1,35 @@
 <template>
   <div id="app">
-    <input type="text" name="name" v-model="newMovie">
+    <input type="text" name="name" v-model="newMovie" />
     <button @click="addMovie">Add movie</button>
-    <hr>
+    <hr />
     <ul>
-      <li v-for="movie in moviesList" :key="movie.id">{{ movie.title }}</li>
+      <li v-for="movie in MoviesList" :key="movie.id">{{ movie.title }}</li>
     </ul>
   </div>
 </template>
 
 <script>
-import { moviesDb } from "./db"
+import { db } from "./db.js";
 
 export default {
   data() {
     return {
       newMovie: "",
-      moviesList: [],
+      MoviesList: [],
     };
   },
-  methods:{
-    addMovie(){
-      moviesDb.add({
+  methods: {
+    addMovie() {
+      db.collection('movies').add({
         id: new Date().toISOString(),
         title: this.newMovie,
       });
-      this.newMovie= '';
-    }
+      this.newMovie = "";
+    },
   },
-  firestore:{
-    moviesList: moviesDb
+  firestore: {
+    MoviesList: db.collection('movies').orderBy('id', "desc"),
   },
 };
 </script>

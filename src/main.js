@@ -2,7 +2,7 @@ import './db.js'
 
 import Vue from 'vue'
 import App from './App.vue'
-import { firestorePlugin } from 'vuefire'
+import {firestorePlugin} from 'vuefire'
 
 Vue.config.productionTip = false
 
